@@ -22,3 +22,8 @@ tilstanden der det er relevant.
 * Appen skal ha mulighet for lesing fra og skriving til fil, og må dermed inneholde noe det
 gir mening å lagre. Det kan være tilstanden i et spill, en oversikt over varer på lager i en
 butikk, innlegg i en dagbok, eller lignende.
+
+* Det skal være implementert passende feilhåndtering på hensiktsmessige steder i appen.
+
+* Det skal være laget et sett med JUnit-tester som sjekker at funksjonaliteten i appen fungerer
+som tenkt.
