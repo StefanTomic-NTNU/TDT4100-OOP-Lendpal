@@ -1,7 +1,24 @@
-# Prosjekt-repo for TDT4100
+#TDT4100 Project
 
-Dette repoet inneholder et grunnoppsett for et prosjekt som bruker Java, JavaFX og JUnit5.
 
-For å kode prosjektet, kan du enten importere det fra url-en til dette repoet i Eclipse, eller du kan forke det til et eget repo, som du deretter kan importere og bruke.
-Sistnevnte gir mulighet til å bruke git for kodesynkronisering og versjonskontroll, og er absolutt anbefalt, spesielt om dere er to som jobber sammen på prosjektet.
-Videoer for begge måter å importere repoet ligger på Blackboard.
+
+###Krav til sluttproduktet
+Når dere er ferdig med prosjektet, skal dere ha produsert en fungerende app som oppfyller
+følgende krav:
+
+*[ ] Appen skal bestå av minimum to interagerende klasser.
+ 
+*[ ] Minimum en av klassene må ha noe funksjonalitet utover ren datalagring, en form for
+kalkulasjoner (i en utvidet betydning av begrepet). Dette kan være funksjonaliteten i et
+spill, utregning av matematiske uttrykk, kryssjekking av flere datakilder for å finne felles
+verdier, eller lignende.
+ 
+*[ ] Alle klasser i appen skal ha innkapsling av tilstanden sin, samt validering ved endring av
+tilstanden der det er relevant.
+ 
+*[ ] Appen skal ha et brukergrensesnitt laget i FXML, med tilhørende Controller- og Appklasser. 
+ Disse klassene telles ikke som de to klassene dere skal lage selv.
+ 
+*[ ] Appen skal ha mulighet for lesing fra og skriving til fil, og må dermed inneholde noe det
+gir mening å lagre. Det kan være tilstanden i et spill, en oversikt over varer på lager i en
+butikk, innlegg i en dagbok, eller lignende.
