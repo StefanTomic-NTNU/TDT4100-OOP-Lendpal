@@ -1,39 +1,35 @@
 package lendpal.core;
 
+import java.time.LocalDateTime;
 import java.util.*;
 
-public class LendPalList implements Iterable<LendPalItem> {
+public class LendPalList {
 
-    private Set<LendPalItem> lendPalItems = new TreeSet<>(new LenPalItemComparator());
-    private Collection<LendPalListListener> lendPalListListeners = new ArrayList<>();
+    private Map<LendPalItem, LocalDateTime> lentItems = new LinkedHashMap<LendPalItem, LocalDateTime>();
+    private Collection<LendPalListListener> listeners = new ArrayList<>();
     private User user;
 
     public LendPalList(User user) { this.user = user; }
 
-    public Set<LendPalItem> getLendPalItems() { return lendPalItems; }
+    public Map<LendPalItem, LocalDateTime> getLendPalItems() { return lentItems; }
 
-    public void setLendPalItems(Set<LendPalItem> lendPalItems) {
-        this.lendPalItems = lendPalItems;
-    }
+    public void setLendPalItems(Map<LendPalItem, LocalDateTime> lentItems) { this.lentItems = lentItems; }
 
-    public Collection<LendPalListListener> getLendPalListListeners() {
-        return lendPalListListeners;
-    }
+    public void addItem(LendPalItem item, LocalDateTime returnDate) { this.lentItems.put(item, returnDate); }
+
+    public void removeItem(LendPalItem item) { this.lentItems.remove(item); }
+
+    public Collection<LendPalListListener> getLendPalListListeners() { return listeners; }
 
     public void setLendPalListListeners(Collection<LendPalListListener> lendPalListListeners) {
-        this.lendPalListListeners = lendPalListListeners;
+        this.listeners = lendPalListListeners;
     }
 
-    public User getUser() {
-        return user;
-    }
+    public void addListener(LendPalListListener listener) { this.listeners.add(listener); }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+    public void removeListener(LendPalListListener listener) { this.listeners.remove(listener); }
 
-    @Override
-    public Iterator<LendPalItem> iterator() {
-        return lendPalItems.iterator();
-    }
+    public User getUser() { return user; }
+
+    public void setUser(User user) { this.user = user; }
 }

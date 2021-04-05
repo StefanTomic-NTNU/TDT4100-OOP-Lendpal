@@ -5,12 +5,10 @@ public class LendPalItem {
 
     private String name;
     private String description;
-    private LocalDateTime returnDate;
 
-    public LendPalItem(String name, String description, LocalDateTime occupiedUntil) {
+    public LendPalItem(String name, String description) {
         this.name = name;
         this.description = description;
-        this.returnDate = occupiedUntil;
     }
 
     public String getName() { return name; }
@@ -21,7 +19,4 @@ public class LendPalItem {
 
     public void setDescription(String description) { this.description = description; }
 
-    public LocalDateTime getReturnDate() { return returnDate; }
-
-    public void setReturnDate(LocalDateTime returnDate) { this.returnDate = returnDate; }
 }
