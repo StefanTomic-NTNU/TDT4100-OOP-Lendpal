@@ -3,19 +3,14 @@ package lendpal.core;
 import java.util.*;
 
 public class LendPalList implements Iterable<LendPalItem> {
-    private Set<LendPalItem> lendPalItems = new TreeSet<>(new LenPalItemComparator());
 
+    private Set<LendPalItem> lendPalItems = new TreeSet<>(new LenPalItemComparator());
     private Collection<LendPalListListener> lendPalListListeners = new ArrayList<>();
     private User user;
-    public LendPalList(Set<LendPalItem> lendPalItems, Collection<LendPalListListener> lendPalListListeners, User user) {
-        this.lendPalItems = lendPalItems;
-        this.lendPalListListeners = lendPalListListeners;
-        this.user = user;
-    }
 
-    public Set<LendPalItem> getLendPalItems() {
-        return lendPalItems;
-    }
+    public LendPalList(User user) { this.user = user; }
+
+    public Set<LendPalItem> getLendPalItems() { return lendPalItems; }
 
     public void setLendPalItems(Set<LendPalItem> lendPalItems) {
         this.lendPalItems = lendPalItems;
