@@ -1,4 +1,4 @@
-# TDT4100 Project
+# TDT4100 Project - LendPal
 
 
 
