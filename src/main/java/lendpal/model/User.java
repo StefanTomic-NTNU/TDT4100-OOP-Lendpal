@@ -1,10 +1,13 @@
 package lendpal.model;
 
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.apache.commons.codec.binary.Hex;
 
 /**
  * Users may lend Items using LendPal
@@ -52,25 +55,24 @@ public class User {
         this(firstName, lastName, email, password, Privileges.MEMBER);
     }
 
-    private boolean verifyEmail(String email) {
-        return validEmailPattern.matcher(email).matches();
-    }
+    private boolean verifyEmail(String email) { return validEmailPattern.matcher(email).matches(); }
 
     private static byte[] generateSalt() {
         byte[] bytes = new byte[16];
-        SecureRandom random = new SecureRandom();
-        random.nextBytes(bytes);
+        SecureRandom secureRandom = new SecureRandom();
+        secureRandom.nextBytes(bytes);
         return bytes;
     }
 
     private static String hashPassword(String password, byte[] salt) {
         try {
-            MessageDigest digest = MessageDigest.getInstance("SHA256");
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
             digest.reset();
             digest.update(salt);
-            return password;
+            byte[] hash = digest.digest(password.getBytes(StandardCharsets.UTF_8));
+            return Hex.encodeHexString(hash);
         } catch (NoSuchAlgorithmException e) {
-            System.out.println(e.getMessage());
+            System.err.println(e.getMessage());
             return null;
         }
     }
