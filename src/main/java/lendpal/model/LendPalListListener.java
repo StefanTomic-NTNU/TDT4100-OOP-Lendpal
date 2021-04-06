@@ -1,4 +1,4 @@
-package lendpal.core;
+package lendpal.model;
 
 public class LendPalListListener {
 }

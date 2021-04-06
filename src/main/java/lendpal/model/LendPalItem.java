@@ -1,5 +1,4 @@
-package lendpal.core;
-import java.time.LocalDateTime;
+package lendpal.model;
 
 public class LendPalItem {
 
@@ -19,4 +18,8 @@ public class LendPalItem {
 
     public void setDescription(String description) { this.description = description; }
 
+    @Override
+    public String toString() {
+        return name;
+    }
 }

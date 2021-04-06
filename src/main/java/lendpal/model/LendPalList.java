@@ -1,11 +1,11 @@
-package lendpal.core;
+package lendpal.model;
 
 import java.time.LocalDateTime;
 import java.util.*;
 
 public class LendPalList {
 
-    private Map<LendPalItem, LocalDateTime> lentItems = new LinkedHashMap<LendPalItem, LocalDateTime>();
+    private Map<LendPalItem, LocalDateTime> lentItems = new HashMap<>();
     private Collection<LendPalListListener> listeners = new ArrayList<>();
     private User user;
 
@@ -32,4 +32,15 @@ public class LendPalList {
     public User getUser() { return user; }
 
     public void setUser(User user) { this.user = user; }
+
+    @Override
+    public String toString() {
+        StringBuilder returnString = new StringBuilder(user.getFirstName());
+        returnString.append(": ");
+        for (LendPalItem lentItem : lentItems.keySet()) {
+            returnString.append("\n");
+            returnString.append(lentItem.toString());
+        }
+        return returnString.toString();
+    }
 }
