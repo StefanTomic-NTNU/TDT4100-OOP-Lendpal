@@ -40,12 +40,9 @@ public class User {
     private Privileges privileges;
 
     public User(String firstName, String lastName, String email, String password, Privileges privileges) {
-        if (!this.verifyEmail(email)) {
-            throw new IllegalArgumentException("Email " + email + " is invalid.");
-        }
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
+        this.setEmail(email);
         this.salt = generateSalt();
         this.password = hashPassword(password, this.salt);
         this.privileges = privileges;
@@ -57,6 +54,10 @@ public class User {
 
     private boolean verifyEmail(String email) { return validEmailPattern.matcher(email).matches(); }
 
+    /**
+     * Generates a random salt of size 16 bytes.
+     * @return Salt as byte array
+     */
     private static byte[] generateSalt() {
         byte[] bytes = new byte[16];
         SecureRandom secureRandom = new SecureRandom();
@@ -64,7 +65,13 @@ public class User {
         return bytes;
     }
 
-    private static String hashPassword(String password, byte[] salt) {
+    /**
+     * Hashes password using SHA-256 and given salt
+     * @param password Unhashed password
+     * @param salt as byte array
+     * @return Hashed password as String
+     */
+    public static String hashPassword(String password, byte[] salt) {
         try {
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             digest.reset();
@@ -87,7 +94,17 @@ public class User {
 
     public String getEmail() { return email; }
 
-    public void setEmail(String email) { this.email = email; }
+    public void setEmail(String email) {
+        if (!this.verifyEmail(email)) {
+            throw new IllegalArgumentException("Email " + email + " is invalid.");
+        } else {
+            this.email = email;
+        }
+    }
+
+    public byte[] getSalt() { return salt; }
+
+    public void setSalt(byte[] salt) { this.salt = salt; }
 
     public String getPassword() { return password; }
 
