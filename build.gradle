@@ -1,9 +1,11 @@
 plugins {
     id 'java'
+    id 'application'
     id 'idea'
+    id 'org.openjfx.javafxplugin' version '0.0.9'
 }
 
-group 'org.example'
+group 'io.github.stefanovski13'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -20,8 +22,14 @@ dependencies {
     // https://mvnrepository.com/artifact/org.openjfx/javafx
     implementation group: 'org.openjfx', name: 'javafx', version: '15.0.1', ext: 'pom'
 
+    // https://mvnrepository.com/artifact/org.openjfx/javafx-fxml
+    implementation group: 'org.openjfx', name: 'javafx-fxml', version: '15.0.1'
 
+}
 
+javafx {
+    version = "15.0.1"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
 
 test {
@@ -30,4 +38,14 @@ test {
         events "passed", "skipped", "failed"
     }
 
+}
+
+mainClassName='javafx15.Main'
+jar {
+    manifest {
+        attributes 'Main-Class': 'javafx15.Main'
+    }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
