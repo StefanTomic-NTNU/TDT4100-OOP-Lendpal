@@ -40,10 +40,10 @@ test {
 
 }
 
-mainClassName='javafx15.Main'
+mainClassName='lendpal.Main'
 jar {
     manifest {
-        attributes 'Main-Class': 'javafx15.Main'
+        attributes 'Main-Class': 'lendpal.Main'
     }
     from {
         configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
