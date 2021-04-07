@@ -84,6 +84,11 @@ public class User {
         }
     }
 
+    public boolean checkIfPasswordIsCorrect(String password) {
+        String hashedPassword = hashPassword(password, this.salt);
+        return hashedPassword.equals(this.password);
+    }
+
     public String getFirstName() { return firstName; }
 
     public void setFirstName(String firstName) { this.firstName = firstName; }

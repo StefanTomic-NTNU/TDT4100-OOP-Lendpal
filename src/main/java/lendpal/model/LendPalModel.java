@@ -16,9 +16,34 @@ public class LendPalModel {
         mapUserToList(user, list);
     }
 
+    public boolean containsUser(User user) { return userLendPalListMap.containsKey(user); }
+
+    public LendPalList getLendPalList(User user) {
+        return userLendPalListMap.get(user);
+    }
+
     public void addItemToLendPalList(User user, LendPalItem item) {
-        LendPalList list = this.userLendPalListMap.get(user);
-        list.putItems(item);
+        try {
+            LendPalList list = this.userLendPalListMap.get(user);
+            list.putItems(item);
+        } catch (NullPointerException e) {
+            throw new IllegalArgumentException("User is not registered in model.");
+        }
+    }
+
+    public boolean containsItem(LendPalItem item) {
+        return (userLendPalListMap.values().stream().anyMatch(p -> p.containsItem(item)));
+    }
+
+    public LendPalList getLendPalList(LendPalItem item) {
+        if (containsItem(item)) {
+            return (userLendPalListMap.values().stream()
+                    .filter(p -> p.containsItem(item))
+                    .findFirst()
+                    .get());
+        } else {
+            return null;
+        }
     }
 
 }

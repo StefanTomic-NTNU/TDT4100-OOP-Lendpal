@@ -17,6 +17,11 @@ dependencies {
     // https://mvnrepository.com/artifact/commons-codec/commons-codec
     implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
 
+    // https://mvnrepository.com/artifact/org.openjfx/javafx
+    implementation group: 'org.openjfx', name: 'javafx', version: '15.0.1', ext: 'pom'
+
+
+
 }
 
 test {
