@@ -14,7 +14,7 @@ import org.apache.commons.codec.binary.Hex;
  */
 public class User {
 
-    enum Privileges {
+    private enum Privileges {
         NONMEMBER,
         MEMBER,
         MODERATOR,
@@ -24,6 +24,7 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
+    private int id;
 
     /**
      * This valid email pattern is not 100% correct but is sufficient.
@@ -39,13 +40,18 @@ public class User {
     private byte[] salt;
     private Privileges privileges;
 
-    public User(String firstName, String lastName, String email, String password, Privileges privileges) {
+    public User(int id, String firstName, String lastName, String email, String password, Privileges privileges) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.setEmail(email);
         this.salt = generateSalt();
         this.password = hashPassword(password, this.salt);
         this.privileges = privileges;
+        this.id = id;
+    }
+
+    public User(String firstName, String lastName, String email, String password, Privileges privileges) {
+        this(1, firstName, lastName, email, password, Privileges.MEMBER);
     }
 
     public User(String firstName, String lastName, String email, String password) {

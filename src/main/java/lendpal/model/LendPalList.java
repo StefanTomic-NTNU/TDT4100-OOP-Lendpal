@@ -1,12 +1,15 @@
 package lendpal.model;
 
 import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.time.temporal.TemporalAmount;
 import java.util.*;
 
 public class LendPalList {
 
-    private Map<LendPalItem, LocalDateTime> lentItems = new HashMap<>();
+    //TODO: Make sure User is synchronised with LendPalModel
+
+    private Map<LendPalItem, ZonedDateTime> lentItems = new HashMap<LendPalItem, ZonedDateTime>();
     private Collection<LendPalListListener> listeners = new ArrayList<>();
     private User user;
 
@@ -17,20 +20,20 @@ public class LendPalList {
         putItems(items);
     }
 
-    public Map<LendPalItem, LocalDateTime> getLendPalItems() { return lentItems; }
+    public Map<LendPalItem, ZonedDateTime> getLendPalItems() { return lentItems; }
 
-    public void setLendPalItems(Map<LendPalItem, LocalDateTime> lentItems) { this.lentItems = lentItems; }
+    public void setLendPalItems(Map<LendPalItem, ZonedDateTime> lentItems) { this.lentItems = lentItems; }
 
-    public void putItem(LendPalItem item, LocalDateTime returnDate) { this.lentItems.put(item, returnDate); }
+    public void putItem(LendPalItem item, ZonedDateTime returnDate) { this.lentItems.put(item, returnDate); }
 
     public void putItem(LendPalItem item, TemporalAmount lendTime) {
-        LocalDateTime returnDate = LocalDateTime.now().plus(lendTime);
+        ZonedDateTime returnDate = ZonedDateTime.now().plus(lendTime);
         this.putItem(item, returnDate);
     }
 
     public void putItem(LendPalItem item) {
-        TemporalAmount lendTime = item.getDefaultLendTime();
-        this.putItem(item, lendTime);
+        long lendTime = item.getDefaultDaysLent();
+        this.putItem(item, ZonedDateTime.now().plusHours(lendTime));
     }
 
     public void putItems(LendPalItem... items) {
@@ -47,8 +50,8 @@ public class LendPalList {
         if (!lentItems.containsKey(item)) {
             throw new IllegalArgumentException("No such item is present in LendPalList.");
         }
-        LocalDateTime previousReturnDate = lentItems.get(item);
-        LocalDateTime extendedReturnDate = previousReturnDate.plus(lendTime);
+        ZonedDateTime previousReturnDate = lentItems.get(item);
+        ZonedDateTime extendedReturnDate = previousReturnDate.plus(lendTime);
         this.lentItems.put(item, extendedReturnDate);
     }
 
