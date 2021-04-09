@@ -3,7 +3,6 @@ package lendpal.file;
 import com.squareup.moshi.FromJson;
 import com.squareup.moshi.ToJson;
 
-import java.time.Duration;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 

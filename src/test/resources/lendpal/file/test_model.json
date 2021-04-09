@@ -1,1 +1,42 @@
-{"userLendPalListMap":{"5195b430-8306-44e2-9094-dc4b32053b9e":{"lentItems":{"56160e8f-8fdb-4d04-98fa-78082ee42fa2":"2021-04-09T13:24:47.9751514+02:00[Europe/Oslo]"},"listeners":[],"user":{"email":"epost@epost.com","firstName":"Test","id":"5195b430-8306-44e2-9094-dc4b32053b9e","lastName":"Etternavn","password":"4baddde17249528c5e9786a5bc2962267646870327127ad3005daeff052da236","privileges":"MEMBER","salt":[5,245,164,124,225,28,86,134,50,104,64,64,69,99,139,50]}}}}
+{
+  "items": {
+    "39dec903-de5c-4e0f-8e19-503ac1867176": {
+      "defaultLendTime": "P0Y0M2D",
+      "description": "Grønn, slitt.",
+      "id": "39dec903-de5c-4e0f-8e19-503ac1867176",
+      "name": "Sirkelsag"
+    }
+  },
+  "users": [
+    {
+      "email": "epost@epost.com",
+      "firstName": "Test",
+      "id": "713aa41d-d835-49f4-b3f9-17821ad9c11a",
+      "lastName": "Etternavn",
+      "lentItems": {
+        "39dec903-de5c-4e0f-8e19-503ac1867176": "2021-04-11T23:43:57.2736513+02:00[Europe/Oslo]"
+      },
+      "listeners": [],
+      "password": "de1378d1ef24dddef39c5e2c3d90ccda6f6f7defe0d969315da7ba49923f95a3",
+      "privileges": "MEMBER",
+      "salt": [
+        238,
+        196,
+        65,
+        161,
+        88,
+        127,
+        123,
+        81,
+        248,
+        14,
+        87,
+        105,
+        188,
+        229,
+        1,
+        152
+      ]
+    }
+  ]
+}
