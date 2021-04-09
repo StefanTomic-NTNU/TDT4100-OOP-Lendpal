@@ -17,7 +17,7 @@ class LendPalModelJsonTest {
     @BeforeEach
     void beforeEach() {
         model = new LendPalModel();
-        User user = new User("Test", "Test", "test@epost.com", "Tullepassord");
+        User user = new User("Test");
         LendPalItem item = new LendPalItem("Sirkelsag", "Grønn, slitt.");
         System.out.println(item);
         model.addNewUser(user);

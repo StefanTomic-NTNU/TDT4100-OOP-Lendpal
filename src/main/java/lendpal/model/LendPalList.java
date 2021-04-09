@@ -7,9 +7,10 @@ import java.util.*;
 
 public class LendPalList {
 
-    //TODO: Make sure User is synchronised with LendPalModel
-
-    private Map<LendPalItem, ZonedDateTime> lentItems = new HashMap<LendPalItem, ZonedDateTime>();
+    /**
+     * Maps Item's ID (String) to returndate of item.
+     */
+    private Map<String, ZonedDateTime> lentItems = new HashMap<String, ZonedDateTime>();
     private Collection<LendPalListListener> listeners = new ArrayList<>();
     private User user;
 
@@ -20,11 +21,11 @@ public class LendPalList {
         putItems(items);
     }
 
-    public Map<LendPalItem, ZonedDateTime> getLendPalItems() { return lentItems; }
+    public Map<String, ZonedDateTime> getLendPalItems() { return lentItems; }
 
-    public void setLendPalItems(Map<LendPalItem, ZonedDateTime> lentItems) { this.lentItems = lentItems; }
+    public void setLendPalItems(Map<String, ZonedDateTime> lentItems) { this.lentItems = lentItems; }
 
-    public void putItem(LendPalItem item, ZonedDateTime returnDate) { this.lentItems.put(item, returnDate); }
+    public void putItem(LendPalItem item, ZonedDateTime returnDate) { this.lentItems.put(item.getId(), returnDate); }
 
     public void putItem(LendPalItem item, TemporalAmount lendTime) {
         ZonedDateTime returnDate = ZonedDateTime.now().plus(lendTime);
@@ -43,19 +44,23 @@ public class LendPalList {
     }
 
     public boolean containsItem(LendPalItem item) {
-        return lentItems.containsKey(item);
+        return lentItems.containsKey(item.getId());
     }
 
     public void extendLendTime(LendPalItem item, TemporalAmount lendTime) {
-        if (!lentItems.containsKey(item)) {
+        if (!containsItem(item)) {
             throw new IllegalArgumentException("No such item is present in LendPalList.");
         }
-        ZonedDateTime previousReturnDate = lentItems.get(item);
+        ZonedDateTime previousReturnDate = lentItems.get(item.getId());
         ZonedDateTime extendedReturnDate = previousReturnDate.plus(lendTime);
-        this.lentItems.put(item, extendedReturnDate);
+        this.putItem(item, extendedReturnDate);
     }
 
-    public void removeItem(LendPalItem item) { this.lentItems.remove(item); }
+    public void removeItem(LendPalItem item) { this.lentItems.remove(item.getId()); }
+
+    public ZonedDateTime getReturnDate(String itemId) {
+        return lentItems.get(itemId);
+    }
 
     public Collection<LendPalListListener> getLendPalListListeners() { return listeners; }
 
@@ -75,9 +80,11 @@ public class LendPalList {
     public String toString() {
         StringBuilder returnString = new StringBuilder(user.getFirstName());
         returnString.append(": ");
-        for (LendPalItem lentItem : lentItems.keySet()) {
+        for (String lentItemId : lentItems.keySet()) {
             returnString.append("\n");
-            returnString.append(lentItem.toString());
+            returnString.append(lentItemId);
+            returnString.append(" - ");
+            returnString.append(lentItems.get(lentItemId).toString());
         }
         return returnString.toString();
     }

@@ -5,10 +5,14 @@ import java.util.Map;
 
 public class LendPalModel {
 
-    private final Map<User, LendPalList> userLendPalListMap = new HashMap<>();
+    /**
+     * String is a User's UUID
+     */
+    private final Map<String, LendPalList> userLendPalListMap = new HashMap<>();
 
     public void mapUserToList(User user, LendPalList list) {
-        this.userLendPalListMap.put(user, list);
+        this.userLendPalListMap.put(user.getId(), list);
+        list.setUser(user);
     }
 
     public void addNewUser(User user) {
@@ -16,15 +20,24 @@ public class LendPalModel {
         mapUserToList(user, list);
     }
 
-    public boolean containsUser(User user) { return userLendPalListMap.containsKey(user); }
+    /**
+     * TODO:REMOVE METHOD
+     * Used for testing purposes only
+     * @param firstName first name of user
+     */
+    public void addNewUserWithName(String firstName) {
+        addNewUser(new User("Fornavn"));
+    }
+
+    public boolean containsUser(User user) { return userLendPalListMap.containsKey(user.getId()); }
 
     public LendPalList getLendPalList(User user) {
-        return userLendPalListMap.get(user);
+        return userLendPalListMap.get(user.getId());
     }
 
     public void addItemToLendPalList(User user, LendPalItem item) {
         try {
-            LendPalList list = this.userLendPalListMap.get(user);
+            LendPalList list = this.userLendPalListMap.get(user.getId());
             list.putItems(item);
         } catch (NullPointerException e) {
             throw new IllegalArgumentException("User is not registered in model.");

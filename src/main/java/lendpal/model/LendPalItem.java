@@ -2,8 +2,17 @@ package lendpal.model;
 
 import java.time.Duration;
 import java.time.temporal.TemporalAmount;
+import java.util.UUID;
 
 public class LendPalItem {
+
+    /**
+     * Id is generated using UUID in this iteration of the program.
+     * The id is used as key in the LendPalList HashMap. It is not
+     * a int since it is easier to convert a UUID to String rather
+     * than int.
+     */
+    private String id;
 
     private String name;
     private String description;
@@ -20,10 +29,15 @@ public class LendPalItem {
      */
     private long defaultDaysLent;
 
-    public LendPalItem(String name, String description, long defaultDaysLent) {
+    public LendPalItem(String id, String name, String description, long defaultDaysLent) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.defaultDaysLent = defaultDaysLent;
+    }
+
+    public LendPalItem(String name, String description, long defaultDaysLent) {
+        this(UUID.randomUUID().toString(), name, description, defaultDaysLent);
     }
 
     public LendPalItem(String name, String description) {
@@ -41,6 +55,10 @@ public class LendPalItem {
     public long getDefaultDaysLent() { return defaultDaysLent; }
 
     public void setDefaultDaysLent(long defaultDaysLent) { this.defaultDaysLent = defaultDaysLent; }
+
+    public String getId() {
+        return id;
+    }
 
     @Override
     public String toString() {

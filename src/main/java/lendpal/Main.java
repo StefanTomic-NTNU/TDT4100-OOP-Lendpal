@@ -14,12 +14,14 @@ public class Main {
         LendPalModelFileHandler handler;
 
         model = new LendPalModel();
-        User user = new User("Test", "Test", "test@epost.com", "Tullepassord");
+        User user = new User("Test");
         LendPalItem item = new LendPalItem("Sirkelsag", "Grønn, slitt.");
+        System.out.println(item.getId());
         System.out.println(item);
         model.addNewUser(user);
+        System.out.println(user);
         model.addItemToLendPalList(user, item);
-        System.out.println(model);
+        System.out.println(model.getLendPalList(user));
         handler = new LendPalModelJson();
         handler.save(model, "model.json");
     }

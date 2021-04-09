@@ -13,7 +13,7 @@ public class LendPalModelTest {
     @BeforeEach
     void beforeEach() {
         model = new LendPalModel();
-        user = new User("Fornavn", "Etternavn", "epost@epost.com", "passord");
+        user = new User("Fornavn");
         item = new LendPalItem("Sirkelsag", "Grønn");
     }
 

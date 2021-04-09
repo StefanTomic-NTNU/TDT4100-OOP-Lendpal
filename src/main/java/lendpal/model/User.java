@@ -5,6 +5,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.codec.binary.Hex;
@@ -19,12 +20,8 @@ public class User {
         MEMBER,
         MODERATOR,
         ADMINISTRATOR
-    }
 
-    private String firstName;
-    private String lastName;
-    private String email;
-    private int id;
+        }
 
     /**
      * This valid email pattern is not 100% correct but is sufficient.
@@ -33,6 +30,18 @@ public class User {
             "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$",
             Pattern.CASE_INSENSITIVE);
 
+    private String firstName;
+    private String lastName;
+    private String email;
+
+    /**
+     * Id is generated using UUID in this iteration of the program.
+     * The id is used as key in the LendPalModel HashMap. It is not
+     * a int since it is easier to convert a UUID to String rather
+     * than int.
+     */
+    private String id;
+
     /**
      * Passwords are hashed using salts during construction of User objects.
      */
@@ -40,7 +49,15 @@ public class User {
     private byte[] salt;
     private Privileges privileges;
 
-    public User(int id, String firstName, String lastName, String email, String password, Privileges privileges) {
+    /**
+     * @param id
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @param password UNHASHED password
+     * @param privileges
+     */
+    public User(String id, String firstName, String lastName, String email, String password, Privileges privileges) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.setEmail(email);
@@ -51,11 +68,20 @@ public class User {
     }
 
     public User(String firstName, String lastName, String email, String password, Privileges privileges) {
-        this(1, firstName, lastName, email, password, Privileges.MEMBER);
+        this(UUID.randomUUID().toString(), firstName, lastName, email, password, Privileges.MEMBER);
     }
 
     public User(String firstName, String lastName, String email, String password) {
         this(firstName, lastName, email, password, Privileges.MEMBER);
+    }
+
+    /**
+     * TODO: REMOVE
+     * Used for testing purposes only
+     * @param firstName
+     */
+    public User(String firstName) {
+        this(firstName, "Etternavn", "epost@epost.com", "tullepassord");
     }
 
     private boolean verifyEmail(String email) { return validEmailPattern.matcher(email).matches(); }
@@ -124,4 +150,8 @@ public class User {
     public Privileges getPrivileges() { return privileges; }
 
     public void setPrivileges(Privileges privileges) { this.privileges = privileges; }
+
+    public String getId() {
+        return this.id;
+    }
 }
