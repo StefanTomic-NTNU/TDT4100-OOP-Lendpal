@@ -31,6 +31,17 @@ public class LendPalModel {
 
     public boolean containsUser(User user) { return userLendPalListMap.containsKey(user.getId()); }
 
+    public User getUser(String userId) {
+        return userLendPalListMap.get(userId).getUser();
+    }
+
+    public LendPalItem getItem(String itemId) {
+        return (userLendPalListMap.values().stream()
+                .filter(p -> p.(itemId))
+                .findFirst()
+                .get());
+    }
+
     public LendPalList getLendPalList(User user) {
         return userLendPalListMap.get(user.getId());
     }

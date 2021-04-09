@@ -3,6 +3,7 @@ package lendpal.file;
 import lendpal.model.LendPalItem;
 import lendpal.model.LendPalModel;
 import lendpal.model.User;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,21 +12,20 @@ import java.nio.file.Path;
 
 class LendPalModelJsonTest {
 
-    LendPalModel model;
-    LendPalModelFileHandler handler;
     final String fileName = "src/test/resources/lendpal/file/test_model.json";
+
+    LendPalModelFileHandler handler;
+    LendPalModel model;
+    LendPalItem item;
+    User user;
 
     @BeforeEach
     void beforeEach() {
         model = new LendPalModel();
-        User user = new User("Test");
-        LendPalItem item = new LendPalItem("Sirkelsag", "Grønn, slitt.");
-        System.out.println(item.getId());
-        System.out.println(item);
+        user = new User("Test");
+        item = new LendPalItem("Sirkelsag", "Grønn, slitt.");
         model.addNewUser(user);
-        System.out.println(user);
         model.addItemToLendPalList(user, item);
-        System.out.println(model.getLendPalList(user));
         handler = new LendPalModelJson();
 
     }
@@ -33,7 +33,13 @@ class LendPalModelJsonTest {
     @Test
     void testSaveAndLoad() {
         handler.save(model, fileName);
-        LendPalModel model = handler.load(fileName);
+        LendPalModel readModel = handler.load(fileName);
+        Assertions.assertAll(
+                () -> Assertions.assertTrue(readModel.containsUser(user)),
+                () -> Assertions.assertTrue(readModel.containsItem(item))
+        );
+        System.out.println(readModel.getUser(user.getId()));
+        System.out.println(readModel.get());
     }
 
 }

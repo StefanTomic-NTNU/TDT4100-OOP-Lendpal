@@ -34,6 +34,7 @@ public class LendPalItem {
         this.name = name;
         this.description = description;
         this.defaultDaysLent = defaultDaysLent;
+
     }
 
     public LendPalItem(String name, String description, long defaultDaysLent) {
@@ -59,6 +60,8 @@ public class LendPalItem {
     public String getId() {
         return id;
     }
+
+    public boolean idEquals(LendPalItem other) { return this.id.equals(other.id); }
 
     @Override
     public String toString() {

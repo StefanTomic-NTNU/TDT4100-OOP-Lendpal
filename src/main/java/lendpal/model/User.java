@@ -154,4 +154,6 @@ public class User {
     public String getId() {
         return this.id;
     }
+
+    public boolean idEquals(User other) { return this.id.equals(other.id); }
 }

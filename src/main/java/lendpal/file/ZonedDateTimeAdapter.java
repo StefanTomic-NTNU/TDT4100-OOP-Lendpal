@@ -13,11 +13,11 @@ public class ZonedDateTimeAdapter {
 
     @ToJson
     String toJson(ZonedDateTime time) {
-        return FORMATTER.format(time);
+        return time.format(FORMATTER);
     }
 
     @FromJson
     ZonedDateTime fromJson(String json) {
-        return (ZonedDateTime) FORMATTER.parse(json);
+        return ZonedDateTime.parse(json, FORMATTER);
     }
 }

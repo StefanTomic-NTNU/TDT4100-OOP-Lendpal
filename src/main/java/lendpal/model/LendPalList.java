@@ -47,6 +47,11 @@ public class LendPalList {
         return lentItems.containsKey(item.getId());
     }
 
+    public LendPalItem getItem(String itemId) {
+
+        return null;
+    }
+
     public void extendLendTime(LendPalItem item, TemporalAmount lendTime) {
         if (!containsItem(item)) {
             throw new IllegalArgumentException("No such item is present in LendPalList.");
@@ -75,6 +80,8 @@ public class LendPalList {
     public User getUser() { return user; }
 
     public void setUser(User user) { this.user = user; }
+
+
 
     @Override
     public String toString() {
