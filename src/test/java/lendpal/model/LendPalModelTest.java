@@ -19,9 +19,9 @@ public class LendPalModelTest {
 
     @Test
     void testAddNewUserAndContainsUser() {
-        Assertions.assertFalse(model.containsUser(user));
+        Assertions.assertFalse(model.containsUser(user.getId()));
         model.addUser(user);
-        Assertions.assertTrue(model.containsUser(user));
+        Assertions.assertTrue(model.containsUser(user.getId()));
     }
 
     @Test

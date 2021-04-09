@@ -31,7 +31,7 @@ public class LendPalModel {
         addUser(new User("Fornavn"));
     }
 
-    public boolean containsUser(User user) { return users.contains(user); }
+    // public boolean containsUser(User user) { return users.contains(user); }
 
     public boolean containsUser(String userId) {
         return (users.stream()

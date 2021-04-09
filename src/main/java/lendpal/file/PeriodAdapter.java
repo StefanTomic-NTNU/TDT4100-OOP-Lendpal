@@ -4,8 +4,6 @@ import com.squareup.moshi.FromJson;
 import com.squareup.moshi.ToJson;
 
 import java.time.Period;
-import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class PeriodAdapter {
 

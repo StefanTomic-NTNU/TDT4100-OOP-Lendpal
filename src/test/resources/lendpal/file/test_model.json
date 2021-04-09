@@ -1,9 +1,9 @@
 {
   "items": {
-    "39dec903-de5c-4e0f-8e19-503ac1867176": {
+    "6eb22f33-6a5a-46b5-8b49-9d8f05e19647": {
       "defaultLendTime": "P0Y0M2D",
       "description": "Grønn, slitt.",
-      "id": "39dec903-de5c-4e0f-8e19-503ac1867176",
+      "id": "6eb22f33-6a5a-46b5-8b49-9d8f05e19647",
       "name": "Sirkelsag"
     }
   },
@@ -11,31 +11,31 @@
     {
       "email": "epost@epost.com",
       "firstName": "Test",
-      "id": "713aa41d-d835-49f4-b3f9-17821ad9c11a",
+      "id": "80cea59b-7ddd-495b-bbd3-29a48fa601ae",
       "lastName": "Etternavn",
       "lentItems": {
-        "39dec903-de5c-4e0f-8e19-503ac1867176": "2021-04-11T23:43:57.2736513+02:00[Europe/Oslo]"
+        "6eb22f33-6a5a-46b5-8b49-9d8f05e19647": "2021-04-11T23:46:47.8648501+02:00[Europe/Oslo]"
       },
       "listeners": [],
-      "password": "de1378d1ef24dddef39c5e2c3d90ccda6f6f7defe0d969315da7ba49923f95a3",
+      "password": "6fd51c15efa6331986ac616ece98a6e0e7dfc47db56310bdbe84b288b5fba6b5",
       "privileges": "MEMBER",
       "salt": [
-        238,
-        196,
-        65,
-        161,
-        88,
+        99,
+        95,
+        61,
+        93,
         127,
-        123,
-        81,
-        248,
-        14,
-        87,
-        105,
-        188,
-        229,
-        1,
-        152
+        234,
+        103,
+        127,
+        190,
+        181,
+        23,
+        189,
+        180,
+        160,
+        230,
+        245
       ]
     }
   ]
