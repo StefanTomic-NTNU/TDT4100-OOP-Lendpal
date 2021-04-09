@@ -20,14 +20,15 @@ public class LendPalModelTest {
     @Test
     void testAddNewUserAndContainsUser() {
         Assertions.assertFalse(model.containsUser(user));
-        model.addNewUser(user);
+        model.addUser(user);
         Assertions.assertTrue(model.containsUser(user));
     }
 
     @Test
     void testAddItemToLendPalList() {
-        model.addNewUser(user);
-        model.addItemToLendPalList(user, item);
-        Assertions.assertEquals(model.getLendPalList(user), model.getLendPalList(item));
+        model.addUser(user);
+        model.addItem(item);
+        model.lendItem(user.getId(), item.getId());
+        Assertions.assertEquals(model.getUser(user.getId()), model.getItemHolder(item.getId()));
     }
 }

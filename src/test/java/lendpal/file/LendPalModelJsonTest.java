@@ -7,9 +7,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
-
 class LendPalModelJsonTest {
 
     final String fileName = "src/test/resources/lendpal/file/test_model.json";
@@ -24,8 +21,8 @@ class LendPalModelJsonTest {
         model = new LendPalModel();
         user = new User("Test");
         item = new LendPalItem("Sirkelsag", "Grønn, slitt.");
-        model.addNewUser(user);
-        model.addItemToLendPalList(user, item);
+        model.addUser(user);
+        model.lendItem(user.getId(), item.getId());
         handler = new LendPalModelJson();
 
     }
@@ -36,10 +33,10 @@ class LendPalModelJsonTest {
         LendPalModel readModel = handler.load(fileName);
         Assertions.assertAll(
                 () -> Assertions.assertTrue(readModel.containsUser(user)),
-                () -> Assertions.assertTrue(readModel.containsItem(item))
+                () -> Assertions.assertTrue(readModel.isItemLent(item.getId()))
         );
         System.out.println(readModel.getUser(user.getId()));
-        System.out.println(readModel.get());
+        //System.out.println(readModel.get());
     }
 
 }

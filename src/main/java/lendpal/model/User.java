@@ -5,7 +5,8 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
-import java.util.UUID;
+import java.time.ZonedDateTime;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import org.apache.commons.codec.binary.Hex;
@@ -48,15 +49,9 @@ public class User {
     private String password;
     private byte[] salt;
     private Privileges privileges;
+    private Map<String, ZonedDateTime> lentItems = new HashMap<>();
+    private Collection<UserListener> listeners = new ArrayList<>();
 
-    /**
-     * @param id
-     * @param firstName
-     * @param lastName
-     * @param email
-     * @param password UNHASHED password
-     * @param privileges
-     */
     public User(String id, String firstName, String lastName, String email, String password, Privileges privileges) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -156,4 +151,17 @@ public class User {
     }
 
     public boolean idEquals(User other) { return this.id.equals(other.id); }
+
+    public boolean hasItem(String itemId) {
+        return lentItems.containsKey(itemId);
+    }
+
+    public Map<String, ZonedDateTime> getLentItems() {
+        return lentItems;
+    }
+
+    public void lendItem(String itemId, ZonedDateTime returnDate) {
+        lentItems.put(itemId, returnDate);
+    }
+
 }
