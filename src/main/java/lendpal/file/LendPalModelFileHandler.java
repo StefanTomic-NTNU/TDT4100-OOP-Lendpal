@@ -8,6 +8,6 @@ public interface LendPalModelFileHandler {
 
     void save(LendPalModel model, String fileName);
 
-    void load(String fileName);
+    LendPalModel load(String fileName);
 
 }

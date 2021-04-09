@@ -13,23 +13,27 @@ class LendPalModelJsonTest {
 
     LendPalModel model;
     LendPalModelFileHandler handler;
+    final String fileName = "src/test/resources/lendpal/file/test_model.json";
 
     @BeforeEach
     void beforeEach() {
         model = new LendPalModel();
         User user = new User("Test");
         LendPalItem item = new LendPalItem("Sirkelsag", "Grønn, slitt.");
+        System.out.println(item.getId());
         System.out.println(item);
         model.addNewUser(user);
+        System.out.println(user);
         model.addItemToLendPalList(user, item);
-        System.out.println(model);
+        System.out.println(model.getLendPalList(user));
         handler = new LendPalModelJson();
 
     }
 
     @Test
-    void testSaveThrowsNoError() {
-        handler.save(model, "model.json");
+    void testSaveAndLoad() {
+        handler.save(model, fileName);
+        LendPalModel model = handler.load(fileName);
     }
 
 }
