@@ -45,6 +45,13 @@ public class LendPalModel {
                 .orElse(null);
     }
 
+    public User getUserByEmail(String email) {
+        return (users.stream()
+                .filter(p -> p.getEmail().equals(email))
+                .findFirst())
+                .orElse(null);
+    }
+
     public User getItemHolder(String itemId) {
         return (users.stream()
                 .filter(p -> p.hasItem(itemId))
@@ -90,6 +97,17 @@ public class LendPalModel {
 
     public void removeItem(LendPalItem item) {
         items.remove(item.getId());
+    }
+
+    public Map<String, LendPalItem> getAllItems() {
+        return this.items;
+    }
+
+    public boolean checkUserCredentials(String email, String password) {
+        User user = getUserByEmail(email);
+        if (user != null) {
+            return user.checkIfPasswordIsCorrect(password);
+        } else { return false; }
     }
 
 

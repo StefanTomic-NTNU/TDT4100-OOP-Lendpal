@@ -164,4 +164,18 @@ public class User {
         lentItems.put(itemId, returnDate);
     }
 
+    public void addUserListener(UserListener listener) {
+        listeners.add(listener);
+    }
+
+    public void removeUserListener(UserListener listener) {
+        listeners.remove(listener);
+    }
+
+    protected void fireUserChanged() {
+        for (UserListener listener : listeners) {
+            listener.userChanged(this);
+        }
+    }
+
 }

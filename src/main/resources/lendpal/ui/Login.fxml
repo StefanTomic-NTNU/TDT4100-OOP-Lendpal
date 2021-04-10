@@ -24,7 +24,7 @@
       </Text>
       <PasswordField fx:id="passwordField" layoutX="156.0" layoutY="188.0" prefHeight="25.0" prefWidth="290.0" />
       <Button fx:id="registerButton" layoutX="243.0" layoutY="332.0" mnemonicParsing="false" text="Registrer ny bruker" />
-      <Button fx:id="loginButton" layoutX="270.0" layoutY="262.0" mnemonicParsing="false" text="Logg inn" />
+      <Button fx:id="loginButton" layoutX="270.0" layoutY="262.0" mnemonicParsing="false" text="Logg inn" onAction="#loginButtonClicked" />
    </children>
 
    <fx:define>

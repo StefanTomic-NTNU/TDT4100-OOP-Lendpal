@@ -1,4 +1,7 @@
 package lendpal.model;
 
-public class UserListener {
+public interface UserListener {
+
+    public void userChanged(User user);
+
 }
