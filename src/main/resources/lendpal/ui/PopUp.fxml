@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="203.0" prefWidth="241.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lendpal.ui.PopUpController">
+   <children>
+      <Button fx:id="okButton" layoutX="104.0" layoutY="164.0" mnemonicParsing="false" text="OK" onAction="#okButtonClicked"/>
+      <TextArea fx:id="popUpTextArea" layoutX="21.0" layoutY="14.0" prefHeight="138.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>

@@ -47,18 +47,28 @@ public class LoginController {
         System.out.println(emailField.getText());
         System.out.println(passwordField.getText());
         if (access.checkUserCredentials(emailField.getText(), passwordField.getText())) {
+            Stage oldStage = (Stage) loginButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("LendPalApp.fxml"));
             Parent root = (Parent) loader.load();
             LendPalAppController appController = loader.getController();
             appController.setLendPalDataAccess(access);
-            Stage stage = new Stage();
-            stage.setScene(new Scene(root, 900, 500));
-            stage.setTitle("LendPal");
-            stage.show();
+            Stage newStage = new Stage();
+            newStage.setScene(new Scene(root, 900, 500));
+            newStage.setTitle("LendPal");
+            newStage.show();
+            oldStage.close();
         }
         else {
             emailField.clear();
             passwordField.clear();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PopUp.fxml"));
+            Parent popUpRoot = (Parent) loader.load();
+            PopUpController popUpController = loader.getController();
+            popUpController.setMessage("Epost eller passord er feil.");
+            Stage popUp = new Stage();
+            popUp.setScene(new Scene(popUpRoot));
+            popUp.setTitle("Feilmelding");
+            popUp.show();
         }
     }
 
