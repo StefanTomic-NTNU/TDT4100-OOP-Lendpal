@@ -18,6 +18,17 @@ public class LendPalModel {
         users.add(user);
     }
 
+    public void addNewUser(
+            String firstName, String lastName, String email, String password, String passwordConfirm)
+            throws IllegalArgumentException {
+        if (containsUserWithEmail(email)) {
+            throw new IllegalArgumentException("Bruker med epost " + email + " eksisterer allerede");
+        } else if (!password.equals(passwordConfirm)) {
+            throw new IllegalArgumentException("Passordene matcher ikke");
+        }
+        addUser(new User(firstName, lastName, email, password));
+    }
+
     public void removeUser(User user) {
         users.remove(user);
     }
@@ -50,6 +61,10 @@ public class LendPalModel {
                 .filter(p -> p.getEmail().equals(email))
                 .findFirst())
                 .orElse(null);
+    }
+
+    public boolean containsUserWithEmail(String email) {
+        return (users.stream().anyMatch(p -> p.getEmail().equals(email)));
     }
 
     public User getItemHolder(String itemId) {

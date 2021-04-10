@@ -1,14 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lendpal.ui.RegisterUserController"
-            prefHeight="400.0" prefWidth="600.0">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lendpal.ui.RegisterUserController">
+    <children>
+        <TextField fx:id="emailField" layoutX="150.0" layoutY="159.0" prefHeight="25.0" prefWidth="300.0" />
+        <Text layoutX="150.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Epost">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+        <Text layoutX="151.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Passord">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+        <Text layoutX="151.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bekreft passord">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+        <PasswordField fx:id="passwordField" layoutX="150.0" layoutY="232.0" prefHeight="25.0" prefWidth="300.0" />
+        <PasswordField fx:id="confirmPasswordField" layoutX="151.0" layoutY="289.0" prefHeight="25.0" prefWidth="300.0" />
+        <Button fx:id="cancelButton" layoutX="146.0" layoutY="349.0" mnemonicParsing="false" onAction="#cancelButtonClicked" text="Avbryt" />
+        <Button fx:id="registerButton" layoutX="339.0" layoutY="349.0" mnemonicParsing="false" onAction="#registerButtonClicked" text="Registrer ny bruker" />
+      <TextField fx:id="firstNameField" layoutX="151.0" layoutY="107.0" prefWidth="150.0" />
+      <TextField fx:id="lastNameField" layoutX="300.0" layoutY="107.0" prefWidth="150.0" />
+      <Text layoutX="150.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fornavn">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="301.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Etternavn">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="164.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registrer ny bruker">
+         <font>
+            <Font name="Calibri" size="35.0" />
+         </font>
+      </Text>
+    </children>
 
 </AnchorPane>

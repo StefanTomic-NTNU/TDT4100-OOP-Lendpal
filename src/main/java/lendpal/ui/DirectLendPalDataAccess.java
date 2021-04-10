@@ -6,7 +6,6 @@ import lendpal.model.LendPalItem;
 import lendpal.model.LendPalModel;
 import lendpal.model.User;
 
-import java.io.IOException;
 import java.time.Period;
 import java.time.ZonedDateTime;
 import java.util.Map;
@@ -44,6 +43,11 @@ public class DirectLendPalDataAccess implements LendPalDataAccess {
     @Override
     public void addUser(User user) {
         model.addUser(user);
+    }
+
+    @Override
+    public void addNewUser(String firstName, String lastName, String email, String password, String passwordConfirm) {
+        model.addNewUser(firstName, lastName, email, password, passwordConfirm);
     }
 
     @Override

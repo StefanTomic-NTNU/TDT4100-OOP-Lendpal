@@ -53,11 +53,11 @@ public class User {
     private Collection<UserListener> listeners = new ArrayList<>();
 
     public User(String id, String firstName, String lastName, String email, String password, Privileges privileges) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
         this.setEmail(email);
         this.salt = generateSalt();
-        this.password = hashPassword(password, this.salt);
+        this.setPassword(password, salt);
         this.privileges = privileges;
         this.id = id;
     }
@@ -79,7 +79,20 @@ public class User {
         this(firstName, "Etternavn", "epost@epost.com", "tullepassord");
     }
 
-    private boolean verifyEmail(String email) { return validEmailPattern.matcher(email).matches(); }
+    public static boolean verifyEmail(String email) { return validEmailPattern.matcher(email).matches(); }
+
+    /**
+     * Checks if a unhashed password is valid.
+     * @param password Unhashed password
+     * @return True if password is valid, false otherwise
+     */
+    public static boolean verifyPassword(String password) {
+        return (password.length() > 5);
+    }
+
+    public static boolean verifyName(String password) {
+        return (password.length() > 1);
+    }
 
     /**
      * Generates a random salt of size 16 bytes.
@@ -118,16 +131,28 @@ public class User {
 
     public String getFirstName() { return firstName; }
 
-    public void setFirstName(String firstName) { this.firstName = firstName; }
+    public void setFirstName(String firstName) {
+        if (!verifyName(firstName)) {
+            throw new IllegalArgumentException("First name " + firstName + " is invalid.");
+        } else {
+            this.firstName = firstName;
+        }
+    }
 
     public String getLastName() { return lastName; }
 
-    public void setLastName(String lastName) { this.lastName = lastName; }
+    public void setLastName(String lastName) {
+        if (!verifyName(lastName)) {
+            throw new IllegalArgumentException("Last name " + lastName + " is invalid.");
+        } else {
+            this.lastName = lastName;
+        }
+    }
 
     public String getEmail() { return email; }
 
     public void setEmail(String email) {
-        if (!this.verifyEmail(email)) {
+        if (!verifyEmail(email)) {
             throw new IllegalArgumentException("Email " + email + " is invalid.");
         } else {
             this.email = email;
@@ -140,7 +165,13 @@ public class User {
 
     public String getPassword() { return password; }
 
-    public void setPassword(String password) { this.password = password; }
+    public void setPassword(String password, byte[] salt) {
+        if (!verifyPassword(password)) {
+            throw new IllegalArgumentException("Password is invalid.");
+        } else {
+            this.password = hashPassword(password, salt);
+        }
+    }
 
     public Privileges getPrivileges() { return privileges; }
 

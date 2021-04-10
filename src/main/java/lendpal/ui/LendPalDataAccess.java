@@ -9,35 +9,37 @@ import java.util.Map;
 
 public interface LendPalDataAccess {
 
-    public void addUser(User user);
+    void addUser(User user);
 
-    public boolean containsUser(String userId);
+    void addNewUser(String firstName, String lastName, String email, String password, String passwordConfirm);
 
-    public User getUser(String userId);
+    boolean containsUser(String userId);
 
-    public User getItemHolder(String itemId);
+    User getUser(String userId);
 
-    public LendPalItem getItem(String itemId);
+    User getItemHolder(String itemId);
 
-    public Period getDefaultLendTime(String itemId);
+    LendPalItem getItem(String itemId);
 
-    public ZonedDateTime getReturnDateFromNow(String itemId);
+    Period getDefaultLendTime(String itemId);
 
-    public Map<String, ZonedDateTime> getLentItems(String userId);
+    ZonedDateTime getReturnDateFromNow(String itemId);
 
-    public void lendItem(String userId, String itemId);
+    Map<String, ZonedDateTime> getLentItems(String userId);
 
-    public boolean isItemLent(String itemId);
+    void lendItem(String userId, String itemId);
 
-    public void addItem(LendPalItem item);
+    boolean isItemLent(String itemId);
 
-    public void removeItem(LendPalItem item);
+    void addItem(LendPalItem item);
 
-    public Map<String, LendPalItem> getAllItems();
+    void removeItem(LendPalItem item);
 
-    public void writeData();
+    Map<String, LendPalItem> getAllItems();
 
-    public boolean checkUserCredentials(String email, String password);
+    void writeData();
+
+    boolean checkUserCredentials(String email, String password);
 
 
 }

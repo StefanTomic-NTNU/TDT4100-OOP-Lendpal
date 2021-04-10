@@ -43,13 +43,10 @@ public class LoginController {
 
     @FXML
     void loginButtonClicked() throws IOException {
-        // System.out.println("Hei");
-        System.out.println(emailField.getText());
-        System.out.println(passwordField.getText());
         if (access.checkUserCredentials(emailField.getText(), passwordField.getText())) {
             Stage oldStage = (Stage) loginButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("LendPalApp.fxml"));
-            Parent root = (Parent) loader.load();
+            Parent root = loader.load();
             LendPalAppController appController = loader.getController();
             appController.setLendPalDataAccess(access);
             Stage newStage = new Stage();
@@ -62,7 +59,7 @@ public class LoginController {
             emailField.clear();
             passwordField.clear();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("PopUp.fxml"));
-            Parent popUpRoot = (Parent) loader.load();
+            Parent popUpRoot = loader.load();
             PopUpController popUpController = loader.getController();
             popUpController.setMessage("Epost eller passord er feil.");
             Stage popUp = new Stage();
@@ -70,6 +67,20 @@ public class LoginController {
             popUp.setTitle("Feilmelding");
             popUp.show();
         }
+    }
+
+    @FXML
+    void RegisterButtonClicked() throws IOException {
+        Stage oldStage = (Stage) registerButton.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("RegisterUser.fxml"));
+        Parent root = loader.load();
+        RegisterUserController userController = loader.getController();
+        userController.setLendPalDataAccess(access);
+        Stage newStage = new Stage();
+        newStage.setScene(new Scene(root));
+        newStage.setTitle("Registrer ny bruker");
+        newStage.show();
+        oldStage.close();
     }
 
 
