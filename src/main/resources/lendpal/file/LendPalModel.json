@@ -37,6 +37,34 @@
         230,
         245
       ]
+    },
+    {
+      "email": "stefan@tomic.com",
+      "firstName": "Stefan",
+      "id": "3f05567c-8a60-485d-94d9-3803da1d48d4",
+      "lastName": "Tomic",
+      "lentItems": {},
+      "listeners": [],
+      "password": "e056a0f1c2719407b9a3f66f67666066075e1625f2e8fa85931467da92ffe469",
+      "privileges": "MEMBER",
+      "salt": [
+        183,
+        51,
+        222,
+        166,
+        191,
+        185,
+        57,
+        54,
+        181,
+        234,
+        40,
+        228,
+        69,
+        48,
+        136,
+        185
+      ]
     }
   ]
 }

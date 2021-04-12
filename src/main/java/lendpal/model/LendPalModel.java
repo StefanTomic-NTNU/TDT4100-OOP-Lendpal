@@ -7,7 +7,7 @@ import java.util.*;
 
 public class LendPalModel {
 
-    private final Set<User> users = new HashSet<>();
+    private final List<User> users = new ArrayList<>();
 
     /**
      * Key String is a LendPalItem's Id. HashMap is useful for quick lookups.

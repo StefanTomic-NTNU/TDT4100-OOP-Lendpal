@@ -43,12 +43,14 @@ public class LoginController {
 
     @FXML
     void loginButtonClicked() throws IOException {
-        if (access.checkUserCredentials(emailField.getText(), passwordField.getText())) {
+        String email = emailField.getText();
+        if (access.checkUserCredentials(email, passwordField.getText())) {
             Stage oldStage = (Stage) loginButton.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("LendPalApp.fxml"));
             Parent root = loader.load();
             LendPalAppController appController = loader.getController();
             appController.setLendPalDataAccess(access);
+            appController.setUserId(access.getUserByEmail(email).getId());
             Stage newStage = new Stage();
             newStage.setScene(new Scene(root, 900, 500));
             newStage.setTitle("LendPal");

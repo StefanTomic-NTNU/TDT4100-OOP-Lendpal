@@ -17,6 +17,8 @@ public interface LendPalDataAccess {
 
     User getUser(String userId);
 
+    User getUserByEmail(String email);
+
     User getItemHolder(String itemId);
 
     LendPalItem getItem(String itemId);

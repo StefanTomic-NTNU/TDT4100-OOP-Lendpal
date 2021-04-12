@@ -61,6 +61,11 @@ public class DirectLendPalDataAccess implements LendPalDataAccess {
     }
 
     @Override
+    public User getUserByEmail(String email) {
+        return model.getUserByEmail(email);
+    }
+
+    @Override
     public User getItemHolder(String itemId) {
         return model.getItemHolder(itemId);
     }
