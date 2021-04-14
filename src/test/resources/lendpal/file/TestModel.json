@@ -1,0 +1,41 @@
+{
+  "items": {
+    "53fae484-0432-4180-8faa-fc1211a1d043": {
+      "defaultLendTime": "P0Y0M2D",
+      "description": "Grønn, slitt.",
+      "id": "53fae484-0432-4180-8faa-fc1211a1d043",
+      "name": "Sirkelsag"
+    }
+  },
+  "users": [
+    {
+      "email": "epost@epost.com",
+      "firstName": "Test",
+      "id": "10a7650a-27a0-47f4-91f3-1f5370b0d5e1",
+      "lastName": "Etternavn",
+      "lentItems": {
+        "53fae484-0432-4180-8faa-fc1211a1d043": "2021-04-16T14:37:11.7366572+02:00[Europe/Oslo]"
+      },
+      "password": "1e27f9356cbdce82811402fb8d4765c84718fde4cb8b14b1f8c979192393ce50",
+      "privileges": "MEMBER",
+      "salt": [
+        83,
+        145,
+        119,
+        180,
+        88,
+        138,
+        151,
+        105,
+        121,
+        13,
+        255,
+        111,
+        90,
+        136,
+        114,
+        208
+      ]
+    }
+  ]
+}

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test;
 
 class LendPalModelJsonTest {
 
-    final String fileName = "src/test/resources/lendpal/file/test_model.json";
+    final String fileName = "src/test/resources/lendpal/file/TestModel.json";
 
     LendPalModelFileHandler handler;
     LendPalModel model;

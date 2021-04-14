@@ -50,7 +50,11 @@ public class User {
     private byte[] salt;
     private Privileges privileges;
     private Map<String, ZonedDateTime> lentItems = new HashMap<>();
-    private Collection<UserListener> listeners = new ArrayList<>();
+
+    /**
+     * Listeners are set anew for each session and are therefore transient.
+     */
+    private transient Collection<UserListener> listeners = new ArrayList<>();
 
     public User(String id, String firstName, String lastName, String email, String password, Privileges privileges) {
         this.setFirstName(firstName);

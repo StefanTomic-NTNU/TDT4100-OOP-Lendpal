@@ -16,7 +16,7 @@ public class LendPalModelJson implements LendPalModelFileHandler {
         Moshi moshi = new Moshi.Builder()
                 .add(new ZonedDateTimeAdapter())
                 .add(new PeriodAdapter())
-                .add(new UserListenerAdapter())
+                //.add(new UserListenerAdapter())
                 .build();
         JsonAdapter<LendPalModel> jsonAdapter = moshi
                 .adapter(LendPalModel.class)
@@ -43,7 +43,7 @@ public class LendPalModelJson implements LendPalModelFileHandler {
         Moshi moshi = new Moshi.Builder()
                 .add(new ZonedDateTimeAdapter())
                 .add(new PeriodAdapter())
-                .add(new UserListenerAdapter())
+                //.add(new UserListenerAdapter())
                 .build();
         JsonAdapter<LendPalModel> jsonAdapter = moshi.adapter(LendPalModel.class);
 

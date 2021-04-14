@@ -16,7 +16,6 @@
       "lentItems": {
         "6eb22f33-6a5a-46b5-8b49-9d8f05e19647": "2021-04-11T23:46:47.8648501+02:00[Europe/Oslo]"
       },
-      "listeners": [],
       "password": "6fd51c15efa6331986ac616ece98a6e0e7dfc47db56310bdbe84b288b5fba6b5",
       "privileges": "MEMBER",
       "salt": [
@@ -44,7 +43,6 @@
       "id": "3f05567c-8a60-485d-94d9-3803da1d48d4",
       "lastName": "Tomic",
       "lentItems": {},
-      "listeners": [],
       "password": "e056a0f1c2719407b9a3f66f67666066075e1625f2e8fa85931467da92ffe469",
       "privileges": "MEMBER",
       "salt": [
