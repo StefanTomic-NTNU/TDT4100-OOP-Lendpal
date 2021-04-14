@@ -2,6 +2,7 @@ package lendpal.model;
 
 import java.time.Duration;
 import java.time.Period;
+import java.time.ZonedDateTime;
 import java.time.temporal.TemporalAmount;
 import java.util.UUID;
 
@@ -26,11 +27,17 @@ public class LendPalItem {
      */
     private Period defaultLendTime;
 
+    /**
+     * Supposed to be null when item is available.
+     */
+    private ZonedDateTime returnDate;
+
     public LendPalItem(String id, String name, String description, Period defaultLendTime) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.defaultLendTime = defaultLendTime;
+        this.returnDate = null;
     }
 
     public LendPalItem(String name, String description, Period defaultLendTime) {
@@ -61,6 +68,14 @@ public class LendPalItem {
 
     public void setDefaultLendTime(Period defaultLendTime) {
         this.defaultLendTime = defaultLendTime;
+    }
+
+    public void setReturnDate(ZonedDateTime returnDate) {
+        this.returnDate = returnDate;
+    }
+
+    public ZonedDateTime getReturnDate() {
+        return returnDate;
     }
 
     @Override
