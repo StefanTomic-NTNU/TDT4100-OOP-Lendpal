@@ -1,6 +1,7 @@
 package lendpal.ui;
 
 import lendpal.model.LendPalItem;
+import lendpal.model.LendPalItemContainer;
 import lendpal.model.User;
 
 import java.time.Period;
@@ -25,9 +26,7 @@ public interface LendPalDataAccess {
 
     Period getDefaultLendTime(String itemId);
 
-    ZonedDateTime getReturnDateFromNow(String itemId);
-
-    Map<String, ZonedDateTime> getLentItems(String userId);
+    LendPalItemContainer getLentItems(String userId);
 
     void lendItem(String userId, String itemId);
 
@@ -37,7 +36,7 @@ public interface LendPalDataAccess {
 
     void removeItem(LendPalItem item);
 
-    Map<String, LendPalItem> getAllItems();
+    LendPalItemContainer getAllItems();
 
     void writeData();
 

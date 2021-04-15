@@ -2,6 +2,7 @@ package lendpal.model;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.time.temporal.TemporalAmount;
 import java.util.*;
 
 public class LendPalItemContainer implements Iterable<LendPalItem> {
@@ -22,16 +23,41 @@ public class LendPalItemContainer implements Iterable<LendPalItem> {
         this.items.addAll(Arrays.asList(items));
     }
 
+    public void lendItem(LendPalItem item, TemporalAmount time) {
+        if (!items.contains(item)) {
+            item.lendFor(time);
+            addItem(item);
+        }
+    }
+
+    public void lendItemForDefaultTime(LendPalItem item) {
+        if (!items.contains(item)) {
+            item.lendForDefaultTime();
+            addItem(item);
+        }
+    }
+
     public void removeItem(LendPalItem item) {
         this.items.remove(item);
+    }
+
+    public void setItems(List<LendPalItem> items) {
+        this.items = items;
     }
 
     public List<LendPalItem> getItems() {
         return items;
     }
 
-    public void setItems(List<LendPalItem> items) {
-        this.items = items;
+    public LendPalItem getItem(String itemId) {
+        return items.stream()
+                .filter(p -> p.getId().equals(itemId))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public boolean containsItem(String itemId) {
+        return items.stream().allMatch(p -> p.getId().equals(itemId));
     }
 
     public void addListener(LendPalItemContainerListener listener) {

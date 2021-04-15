@@ -22,8 +22,8 @@ class LendPalModelJsonTest {
         user = new User("Test");
         item = new LendPalItem("Sirkelsag", "Grønn, slitt.");
         model.addUser(user);
-        model.addItem(item);
-        model.lendItem(user.getId(), item.getId());
+        model.addAvailableItem(item);
+        model.lendAvailableItem(user.getId(), item.getId());
         handler = new LendPalModelJson();
 
     }
@@ -34,7 +34,7 @@ class LendPalModelJsonTest {
         LendPalModel readModel = handler.load(fileName);
         Assertions.assertAll(
                 () -> Assertions.assertTrue(readModel.containsUser(user.getId())),
-                () -> Assertions.assertTrue(readModel.isItemLent(item.getId()))
+                () -> Assertions.assertTrue(readModel.isItemAvailable(item.getId()))
         );
         System.out.println(readModel.getUser(user.getId()));
         //System.out.println(readModel.get());

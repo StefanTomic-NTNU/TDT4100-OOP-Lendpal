@@ -3,12 +3,12 @@ package lendpal.ui;
 import lendpal.file.LendPalModelFileHandler;
 import lendpal.file.LendPalModelJson;
 import lendpal.model.LendPalItem;
+import lendpal.model.LendPalItemContainer;
 import lendpal.model.LendPalModel;
 import lendpal.model.User;
 
 import java.time.Period;
 import java.time.ZonedDateTime;
-import java.util.Map;
 
 public class DirectLendPalDataAccess implements LendPalDataAccess {
 
@@ -72,7 +72,7 @@ public class DirectLendPalDataAccess implements LendPalDataAccess {
 
     @Override
     public LendPalItem getItem(String itemId) {
-        return model.getItem(itemId);
+        return model.getAvailableItem(itemId);
     }
 
     @Override
@@ -81,38 +81,33 @@ public class DirectLendPalDataAccess implements LendPalDataAccess {
     }
 
     @Override
-    public ZonedDateTime getReturnDateFromNow(String itemId) {
-        return model.getReturnDateFromNow(itemId);
-    }
-
-    @Override
-    public Map<String, ZonedDateTime> getLentItems(String userId) {
-        return model.getLentItems(userId);
+    public LendPalItemContainer getLentItems(String userId) {
+        return model.getAllUnavailableItems(userId);
     }
 
     @Override
     public void lendItem(String userId, String itemId) {
-        model.lendItem(userId, itemId);
+        model.lendAvailableItem(userId, itemId);
     }
 
     @Override
     public boolean isItemLent(String itemId) {
-        return model.isItemLent(itemId);
+        return model.isItemAvailable(itemId);
     }
 
     @Override
     public void addItem(LendPalItem item) {
-        model.addItem(item);
+        model.addAvailableItem(item);
     }
 
     @Override
     public void removeItem(LendPalItem item) {
-        model.removeItem(item);
+        model.removeAvailableItem(item);
     }
 
     @Override
-    public Map<String, LendPalItem> getAllItems() {
-        return model.getAllItems();
+    public LendPalItemContainer getAllItems() {
+        return model.getAllAvailableItems();
     }
 
     @Override

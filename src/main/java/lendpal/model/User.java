@@ -6,6 +6,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.time.ZonedDateTime;
+import java.time.temporal.TemporalAmount;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -49,7 +50,7 @@ public class User {
     private String password;
     private byte[] salt;
     private Privileges privileges;
-    private Map<String, ZonedDateTime> lentItems = new HashMap<>();
+    private LendPalItemContainer lentItems = new LendPalItemContainer();
 
     /**
      * Listeners are set anew for each session and are therefore transient.
@@ -188,15 +189,15 @@ public class User {
     public boolean idEquals(User other) { return this.id.equals(other.id); }
 
     public boolean hasItem(String itemId) {
-        return lentItems.containsKey(itemId);
+        return lentItems.containsItem(itemId);
     }
 
-    public Map<String, ZonedDateTime> getLentItems() {
+    public LendPalItemContainer getLentItems() {
         return lentItems;
     }
 
-    public void lendItem(String itemId, ZonedDateTime returnDate) {
-        lentItems.put(itemId, returnDate);
+    public void lendItem(LendPalItem item, TemporalAmount time) {
+        lentItems.lendItem(item, time);
     }
 
     public void addUserListener(UserListener listener) {

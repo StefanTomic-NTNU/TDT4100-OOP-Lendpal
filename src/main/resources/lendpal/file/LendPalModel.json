@@ -1,67 +1,80 @@
 {
-  "items": {
-    "6eb22f33-6a5a-46b5-8b49-9d8f05e19647": {
-      "defaultLendTime": "P0Y0M2D",
-      "description": "Grønn, slitt.",
-      "id": "6eb22f33-6a5a-46b5-8b49-9d8f05e19647",
-      "name": "Sirkelsag"
-    }
+  "availableItems": {
+    "items": [
+      {
+        "defaultLendTime": "P0Y0M2D",
+        "description": "Grønn, slitt.",
+        "id": "139be98b-b86d-4644-b675-069942f37048",
+        "name": "Sirkelsag",
+        "returnDate": "2021-04-17T18:22:09.6518065+02:00[Europe/Oslo]"
+      }
+    ]
   },
   "users": [
     {
       "email": "epost@epost.com",
       "firstName": "Test",
-      "id": "80cea59b-7ddd-495b-bbd3-29a48fa601ae",
+      "id": "9de0922c-c76f-4234-b50f-95ba2c59a78f",
       "lastName": "Etternavn",
       "lentItems": {
-        "6eb22f33-6a5a-46b5-8b49-9d8f05e19647": "2021-04-11T23:46:47.8648501+02:00[Europe/Oslo]"
+        "items": [
+          {
+            "defaultLendTime": "P0Y0M2D",
+            "description": "Grønn, slitt.",
+            "id": "139be98b-b86d-4644-b675-069942f37048",
+            "name": "Sirkelsag",
+            "returnDate": "2021-04-17T18:22:09.6518065+02:00[Europe/Oslo]"
+          }
+        ]
       },
-      "password": "6fd51c15efa6331986ac616ece98a6e0e7dfc47db56310bdbe84b288b5fba6b5",
+      "password": "be95c7ebca32c69fb741e002cf6e80dc7a08ade7d7293cefa63e5296492196cd",
       "privileges": "MEMBER",
       "salt": [
-        99,
-        95,
-        61,
-        93,
-        127,
-        234,
-        103,
-        127,
-        190,
+        168,
+        9,
+        163,
+        26,
+        96,
         181,
-        23,
-        189,
-        180,
-        160,
-        230,
-        245
+        179,
+        4,
+        10,
+        217,
+        236,
+        167,
+        146,
+        15,
+        206,
+        235
       ]
     },
     {
-      "email": "stefan@tomic.com",
+      "email": "oslostefan@gmail.com",
       "firstName": "Stefan",
-      "id": "3f05567c-8a60-485d-94d9-3803da1d48d4",
+      "id": "fc19d756-bd4b-4762-b2fb-03a898f67a57",
       "lastName": "Tomic",
-      "lentItems": {},
-      "password": "e056a0f1c2719407b9a3f66f67666066075e1625f2e8fa85931467da92ffe469",
+      "lentItems": {
+        "items": []
+      },
+      "password": "751f67a2bef78ffa85063ea7a9ba0b63017f2cc0bc59ad661675e2fbe6d1d433",
       "privileges": "MEMBER",
       "salt": [
-        183,
-        51,
+        100,
         222,
+        108,
+        82,
         166,
-        191,
-        185,
-        57,
-        54,
-        181,
-        234,
-        40,
-        228,
-        69,
-        48,
-        136,
-        185
+        102,
+        71,
+        53,
+        32,
+        94,
+        91,
+        240,
+        162,
+        127,
+        198,
+        142
       ]
     }
   ]

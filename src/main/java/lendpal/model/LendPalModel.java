@@ -1,8 +1,6 @@
 package lendpal.model;
 
 import java.time.Period;
-import java.time.ZonedDateTime;
-import java.time.temporal.TemporalAmount;
 import java.util.*;
 
 public class LendPalModel {
@@ -12,7 +10,7 @@ public class LendPalModel {
     /**
      * Key String is a LendPalItem's Id. HashMap is useful for quick lookups.
      */
-    private final Map<String, LendPalItem> items = new HashMap<>();
+    private final LendPalItemContainer availableItems = new LendPalItemContainer();
 
     public void addUser(User user) {
         users.add(user);
@@ -67,6 +65,13 @@ public class LendPalModel {
         return (users.stream().anyMatch(p -> p.getEmail().equals(email)));
     }
 
+    public boolean checkUserCredentials(String email, String password) {
+        User user = getUserByEmail(email);
+        if (user != null) {
+            return user.checkIfPasswordIsCorrect(password);
+        } else { return false; }
+    }
+
     public User getItemHolder(String itemId) {
         return (users.stream()
                 .filter(p -> p.hasItem(itemId))
@@ -74,55 +79,63 @@ public class LendPalModel {
                 .orElse(null);
     }
 
-    public LendPalItem getItem(String itemId) {
-        return items.get(itemId);
+    public LendPalItem getAvailableItem(String itemId) {
+        return availableItems.getItem(itemId);
     }
 
     public Period getDefaultLendTime(String itemId) {
-        return items.get(itemId).getDefaultLendTime();
+        return availableItems.getItem(itemId).getDefaultLendTime();
     }
 
-    public ZonedDateTime getReturnDateFromNow(String itemId) {
-        return ZonedDateTime.now().plus(items.get(itemId).getDefaultLendTime());
-    }
-
-    public Map<String, ZonedDateTime> getLentItems(String userId) {
+    public LendPalItemContainer getAllUnavailableItems(String userId) {
         return Objects.requireNonNull((users.stream()
                 .filter(p -> p.getId().equals(userId))
                 .findFirst())
                 .orElse(null)).getLentItems();
     }
 
-    public void lendItem(String userId, String itemId) {
+    public void lendItem(String userId, LendPalItem item) {
         try {
-            this.getUser(userId).lendItem(itemId, getReturnDateFromNow(itemId));
+            if (availableItems.containsItem(item.getId())) {
+                availableItems.removeItem(item);
+            }
+            this.getUser(userId).getLentItems().lendItemForDefaultTime(item);
         } catch (NullPointerException e) {
             throw new IllegalArgumentException("Either the user or the item is not registered in the model.");
         }
     }
 
-    public boolean isItemLent(String itemId) {
-        return (users.stream()
-                .anyMatch(p -> p.hasItem(itemId)));
+    /**
+     * Item must be listed in availableItems
+     * @param userId
+     * @param itemId
+     * @throws IllegalArgumentException if item is not listed in availableItems
+     */
+    public void lendAvailableItem(String userId, String itemId) {
+        try {
+            if (!availableItems.containsItem(itemId)) {
+                throw new IllegalArgumentException("Item is not present in availableItems");
+            }
+            this.getUser(userId).getLentItems().lendItemForDefaultTime(availableItems.getItem(itemId));
+        } catch (NullPointerException e) {
+            throw new IllegalArgumentException("Either the user or the item is not registered in the model.");
+        }
     }
 
-    public void addItem(LendPalItem item) {
-        items.put(item.getId(), item);
+    public boolean isItemAvailable(String itemId) {
+        return availableItems.containsItem(itemId);
     }
 
-    public void removeItem(LendPalItem item) {
-        items.remove(item.getId());
+    public void addAvailableItem(LendPalItem item) {
+        availableItems.addItem(item);
     }
 
-    public Map<String, LendPalItem> getAllItems() {
-        return this.items;
+    public void removeAvailableItem(LendPalItem item) {
+        availableItems.removeItem(item);
     }
 
-    public boolean checkUserCredentials(String email, String password) {
-        User user = getUserByEmail(email);
-        if (user != null) {
-            return user.checkIfPasswordIsCorrect(password);
-        } else { return false; }
+    public LendPalItemContainer getAllAvailableItems() {
+        return this.availableItems;
     }
 
 

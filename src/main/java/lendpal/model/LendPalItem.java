@@ -74,6 +74,30 @@ public class LendPalItem {
         this.returnDate = returnDate;
     }
 
+    public void lendFor(TemporalAmount time) {
+        this.returnDate = ZonedDateTime.now().plus(time);
+    }
+
+    public void lendForDefaultTime() {
+        lendFor(this.defaultLendTime);
+    }
+
+    public void extendLendTime(TemporalAmount time) {
+        this.returnDate = this.returnDate.plus(time);
+    }
+
+    public void makeItemAvailable() {
+        this.returnDate = null;
+    }
+
+    public boolean isItemAvailable() {
+        return returnDate == null;
+    }
+
+    public boolean isReturnDateReached() {
+        return this.returnDate.isBefore(ZonedDateTime.now());
+    }
+
     public ZonedDateTime getReturnDate() {
         return returnDate;
     }

@@ -1,40 +1,51 @@
 {
-  "items": {
-    "53fae484-0432-4180-8faa-fc1211a1d043": {
-      "defaultLendTime": "P0Y0M2D",
-      "description": "Grønn, slitt.",
-      "id": "53fae484-0432-4180-8faa-fc1211a1d043",
-      "name": "Sirkelsag"
-    }
+  "availableItems": {
+    "items": [
+      {
+        "defaultLendTime": "P0Y0M2D",
+        "description": "Grønn, slitt.",
+        "id": "139be98b-b86d-4644-b675-069942f37048",
+        "name": "Sirkelsag",
+        "returnDate": "2021-04-17T18:22:09.6518065+02:00[Europe/Oslo]"
+      }
+    ]
   },
   "users": [
     {
       "email": "epost@epost.com",
       "firstName": "Test",
-      "id": "10a7650a-27a0-47f4-91f3-1f5370b0d5e1",
+      "id": "9de0922c-c76f-4234-b50f-95ba2c59a78f",
       "lastName": "Etternavn",
       "lentItems": {
-        "53fae484-0432-4180-8faa-fc1211a1d043": "2021-04-16T14:37:11.7366572+02:00[Europe/Oslo]"
+        "items": [
+          {
+            "defaultLendTime": "P0Y0M2D",
+            "description": "Grønn, slitt.",
+            "id": "139be98b-b86d-4644-b675-069942f37048",
+            "name": "Sirkelsag",
+            "returnDate": "2021-04-17T18:22:09.6518065+02:00[Europe/Oslo]"
+          }
+        ]
       },
-      "password": "1e27f9356cbdce82811402fb8d4765c84718fde4cb8b14b1f8c979192393ce50",
+      "password": "be95c7ebca32c69fb741e002cf6e80dc7a08ade7d7293cefa63e5296492196cd",
       "privileges": "MEMBER",
       "salt": [
-        83,
-        145,
-        119,
-        180,
-        88,
-        138,
-        151,
-        105,
-        121,
-        13,
-        255,
-        111,
-        90,
-        136,
-        114,
-        208
+        168,
+        9,
+        163,
+        26,
+        96,
+        181,
+        179,
+        4,
+        10,
+        217,
+        236,
+        167,
+        146,
+        15,
+        206,
+        235
       ]
     }
   ]
