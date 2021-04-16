@@ -1,7 +1,13 @@
 {
   "availableItems": {
     "items": [
-
+      {
+        "defaultLendTime": "P0Y0M2D",
+        "description": "Buet.",
+        "id": "139be98b-b86d-4644-b675-069942f37050",
+        "name": "Buesag",
+        "returnDate": null
+      }
     ]
   },
   "users": [

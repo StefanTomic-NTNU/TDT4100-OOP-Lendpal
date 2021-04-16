@@ -65,30 +65,29 @@ public class LendPalItemCell extends ListCell<LendPalItem> {
             lendButton = null;
 
         } else {
-            if (fxmlLoader == null) {
-                fxmlLoader = new FXMLLoader(getClass().getResource("LendPalItemCell.fxml"));
-                fxmlLoader.setController(this);
-            } try {
+
+            fxmlLoader = new FXMLLoader(getClass().getResource("LendPalItemCell.fxml"));
+            fxmlLoader.setController(this);
+            try {
                 fxmlLoader.load();
             } catch (IOException e) {
                 e.printStackTrace();
             }
             setText(null);
             setGraphic(hBox);
-        }
-        if (item != null && nameText != null && availability != null && lendButton != null) {
-            nameText.setText(item.getName());
-            ZonedDateTime returnDate = item.getReturnDate();
-            lendButton.setText("LÅN");
-            lendButton.setOnAction(e -> this.appController.lend(getItem()));
-            if (returnDate != null) {
-                availability.setText("OPPTATT TIL " + item.getReturnDate().toString());
-                lendButton.setDisable(true);
-            } else {
-                availability.setText("LEDIG");
+            if (nameText != null && availability != null && lendButton != null) {
+                nameText.setText(item.getName());
+                ZonedDateTime returnDate = item.getReturnDate();
+                lendButton.setText("LÅN");
+                lendButton.setOnAction(e -> this.appController.lend(getItem()));
+                if (returnDate != null) {
+                    availability.setText("OPPTATT TIL " + item.getReturnDate().toString());
+                    lendButton.setDisable(true);
+                } else {
+                    availability.setText("LEDIG");
+                }
             }
         }
-
     }
 
 }
