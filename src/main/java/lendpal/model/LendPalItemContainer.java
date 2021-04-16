@@ -23,6 +23,10 @@ public class LendPalItemContainer implements Iterable<LendPalItem> {
         this.items.addAll(Arrays.asList(items));
     }
 
+    public void addItems(List<LendPalItem> items) {
+        this.items.addAll(items);
+    }
+
     public void lendItem(LendPalItem item, TemporalAmount time) {
         if (!items.contains(item)) {
             item.lendFor(time);

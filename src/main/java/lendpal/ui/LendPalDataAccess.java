@@ -28,7 +28,7 @@ public interface LendPalDataAccess {
 
     LendPalItemContainer getLentItems(String userId);
 
-    void lendItem(String userId, String itemId);
+    void lendItem(String userId, LendPalItem item);
 
     boolean isItemLent(String itemId);
 

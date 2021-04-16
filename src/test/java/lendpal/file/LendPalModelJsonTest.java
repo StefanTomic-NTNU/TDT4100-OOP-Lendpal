@@ -23,7 +23,7 @@ class LendPalModelJsonTest {
         item = new LendPalItem("Sirkelsag", "Grønn, slitt.");
         model.addUser(user);
         model.addAvailableItem(item);
-        model.lendAvailableItem(user.getId(), item.getId());
+        model.lendAvailableItem(user.getId(), item);
         handler = new LendPalModelJson();
 
     }

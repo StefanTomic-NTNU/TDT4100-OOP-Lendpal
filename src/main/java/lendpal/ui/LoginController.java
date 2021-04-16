@@ -50,7 +50,8 @@ public class LoginController {
             Parent root = loader.load();
             LendPalAppController appController = loader.getController();
             appController.setLendPalDataAccess(access);
-            appController.setUserId(access.getUserByEmail(email).getId());
+            appController.setLoggedInUserId(access.getUserByEmail(email).getId());
+            appController.init();
             Stage newStage = new Stage();
             newStage.setScene(new Scene(root, 900, 500));
             newStage.setTitle("LendPal");

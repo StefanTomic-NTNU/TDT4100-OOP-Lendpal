@@ -86,8 +86,8 @@ public class DirectLendPalDataAccess implements LendPalDataAccess {
     }
 
     @Override
-    public void lendItem(String userId, String itemId) {
-        model.lendAvailableItem(userId, itemId);
+    public void lendItem(String userId, LendPalItem item) {
+        model.lendAvailableItem(userId, item);
     }
 
     @Override
@@ -107,7 +107,7 @@ public class DirectLendPalDataAccess implements LendPalDataAccess {
 
     @Override
     public LendPalItemContainer getAllItems() {
-        return model.getAllAvailableItems();
+        return model.getAllItems();
     }
 
     @Override

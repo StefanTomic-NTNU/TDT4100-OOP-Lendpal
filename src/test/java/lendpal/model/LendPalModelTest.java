@@ -28,7 +28,7 @@ public class LendPalModelTest {
     void testAddItemToLendPalList() {
         model.addUser(user);
         model.addAvailableItem(item);
-        model.lendAvailableItem(user.getId(), item.getId());
+        model.lendAvailableItem(user.getId(), item);
         Assertions.assertEquals(model.getUser(user.getId()), model.getItemHolder(item.getId()));
     }
 }

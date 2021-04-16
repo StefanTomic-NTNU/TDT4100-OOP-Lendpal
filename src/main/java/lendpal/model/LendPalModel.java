@@ -87,11 +87,24 @@ public class LendPalModel {
         return availableItems.getItem(itemId).getDefaultLendTime();
     }
 
+    /**
+     * returns all items lent by specified user
+     * @param userId
+     * @return
+     */
     public LendPalItemContainer getAllUnavailableItems(String userId) {
         return Objects.requireNonNull((users.stream()
                 .filter(p -> p.getId().equals(userId))
                 .findFirst())
                 .orElse(null)).getLentItems();
+    }
+
+    public LendPalItemContainer getAllUnavailableItems() {
+        LendPalItemContainer unavailableItems = new LendPalItemContainer();
+        for (User user : users) {
+            unavailableItems.addItems(user.getLentItems().getItems());
+        }
+        return unavailableItems;
     }
 
     public void lendItem(String userId, LendPalItem item) {
@@ -111,12 +124,13 @@ public class LendPalModel {
      * @param itemId
      * @throws IllegalArgumentException if item is not listed in availableItems
      */
-    public void lendAvailableItem(String userId, String itemId) {
+    public void lendAvailableItem(String userId, LendPalItem item) {
         try {
-            if (!availableItems.containsItem(itemId)) {
+            if (!availableItems.containsItem(item.getId())) {
                 throw new IllegalArgumentException("Item is not present in availableItems");
             }
-            this.getUser(userId).getLentItems().lendItemForDefaultTime(availableItems.getItem(itemId));
+            this.getUser(userId).getLentItems().lendItemForDefaultTime(item);
+            this.availableItems.removeItem(item);
         } catch (NullPointerException e) {
             throw new IllegalArgumentException("Either the user or the item is not registered in the model.");
         }
@@ -136,6 +150,13 @@ public class LendPalModel {
 
     public LendPalItemContainer getAllAvailableItems() {
         return this.availableItems;
+    }
+
+    public LendPalItemContainer getAllItems() {
+        LendPalItemContainer container = new LendPalItemContainer();
+        container.addItems(getAllAvailableItems().getItems());
+        container.addItems(getAllUnavailableItems().getItems());
+        return container;
     }
 
 

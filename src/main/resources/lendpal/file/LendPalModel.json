@@ -1,14 +1,6 @@
 {
   "availableItems": {
-    "items": [
-      {
-        "defaultLendTime": "P0Y0M2D",
-        "description": "Grønn, slitt.",
-        "id": "139be98b-b86d-4644-b675-069942f37048",
-        "name": "Sirkelsag",
-        "returnDate": "2021-04-17T18:22:09.6518065+02:00[Europe/Oslo]"
-      }
-    ]
+    "items": []
   },
   "users": [
     {
@@ -54,7 +46,15 @@
       "id": "fc19d756-bd4b-4762-b2fb-03a898f67a57",
       "lastName": "Tomic",
       "lentItems": {
-        "items": []
+        "items": [
+          {
+            "defaultLendTime": "P0Y0M2D",
+            "description": "Blå, slitt.",
+            "id": "139be98b-b86d-4644-b675-069942f37049",
+            "name": "Stikksag",
+            "returnDate": "2021-04-18T14:07:50.321029+02:00[Europe/Oslo]"
+          }
+        ]
       },
       "password": "751f67a2bef78ffa85063ea7a9ba0b63017f2cc0bc59ad661675e2fbe6d1d433",
       "privileges": "MEMBER",
