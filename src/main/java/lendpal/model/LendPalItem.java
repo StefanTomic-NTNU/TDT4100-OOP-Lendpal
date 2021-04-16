@@ -53,7 +53,7 @@ public class LendPalItem {
     public String getName() { return name; }
 
     public boolean containsKeyword(String keyword) {
-        Pattern pattern = Pattern.compile(keyword, Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile(keyword, Pattern.UNICODE_CASE | Pattern.CASE_INSENSITIVE);
         return (pattern.matcher(name).find() || pattern.matcher(description).find());
     }
 

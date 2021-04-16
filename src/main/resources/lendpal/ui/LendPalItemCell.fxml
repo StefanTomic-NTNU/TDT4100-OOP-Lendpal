@@ -14,7 +14,7 @@
          </font>
       </Text>
       <Separator orientation="VERTICAL" prefHeight="200.0" />
-      <Text fx:id="availability" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="185.4700927734375" />
+      <Text fx:id="availability" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="160" />
       <Separator orientation="VERTICAL" prefHeight="200.0" />
       <Button fx:id="lendButton" mnemonicParsing="false" text="Lån" prefWidth="120.0"/>
    </children>

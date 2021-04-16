@@ -78,7 +78,7 @@ public class LendPalItemCell extends ListCell<LendPalItem> {
             if (nameText != null && availability != null && lendButton != null) {
                 nameText.setText(item.getName());
                 ZonedDateTime returnDate = item.getReturnDate();
-                lendButton.setText("LÅN");
+                lendButton.setText("LAAN");
                 lendButton.setOnAction(e -> this.appController.lend(getItem()));
                 if (returnDate != null) {
                     availability.setText("OPPTATT TIL " + item.getReturnDate().toString());

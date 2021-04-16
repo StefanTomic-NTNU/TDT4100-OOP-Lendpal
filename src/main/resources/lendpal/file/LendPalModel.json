@@ -7,6 +7,30 @@
         "id": "139be98b-b86d-4644-b675-069942f37050",
         "name": "Buesag",
         "returnDate": null
+      },
+
+      {
+        "defaultLendTime": "P0Y0M2D",
+        "description": "",
+        "id": "139be98b-b86d-4644-b675-069942f37051",
+        "name": "Poleringsmaskin",
+        "returnDate": null
+      },
+
+      {
+        "defaultLendTime": "P0Y0M2D",
+        "description": "Bøyd",
+        "id": "139be98b-b86d-4644-b675-069942f37052",
+        "name": "Stjernejern",
+        "returnDate": null
+      },
+
+      {
+        "defaultLendTime": "P0Y0M2D",
+        "description": "",
+        "id": "139be98b-b86d-4644-b675-069942f37053",
+        "name": "Boremaskin",
+        "returnDate": null
       }
     ]
   },
