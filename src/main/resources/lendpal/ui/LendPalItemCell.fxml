@@ -16,6 +16,6 @@
       <Separator orientation="VERTICAL" prefHeight="200.0" />
       <Text fx:id="availability" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" wrappingWidth="185.4700927734375" />
       <Separator orientation="VERTICAL" prefHeight="200.0" />
-      <Button fx:id="lendButton" mnemonicParsing="false" text="Lån" prefWidth="100.0"/>
+      <Button fx:id="lendButton" mnemonicParsing="false" text="Lån" prefWidth="120.0"/>
    </children>
 </HBox>

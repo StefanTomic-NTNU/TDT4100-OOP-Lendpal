@@ -60,6 +60,9 @@ public class LendPalItemCell extends ListCell<LendPalItem> {
 
             setText(null);
             setGraphic(null);
+            nameText = null;
+            availability = null;
+            lendButton = null;
 
         } else {
             if (fxmlLoader == null) {
@@ -70,6 +73,8 @@ public class LendPalItemCell extends ListCell<LendPalItem> {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            setText(null);
+            setGraphic(hBox);
         }
         if (item != null && nameText != null && availability != null && lendButton != null) {
             nameText.setText(item.getName());
@@ -83,8 +88,7 @@ public class LendPalItemCell extends ListCell<LendPalItem> {
                 availability.setText("LEDIG");
             }
         }
-        setText(null);
-        setGraphic(hBox);
+
     }
 
 }

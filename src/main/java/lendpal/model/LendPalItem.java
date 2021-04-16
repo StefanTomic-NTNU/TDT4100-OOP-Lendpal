@@ -5,6 +5,8 @@ import java.time.Period;
 import java.time.ZonedDateTime;
 import java.time.temporal.TemporalAmount;
 import java.util.UUID;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class LendPalItem {
 
@@ -49,6 +51,11 @@ public class LendPalItem {
     }
 
     public String getName() { return name; }
+
+    public boolean containsKeyword(String keyword) {
+        Pattern pattern = Pattern.compile(keyword, Pattern.CASE_INSENSITIVE);
+        return (pattern.matcher(name).find() || pattern.matcher(description).find());
+    }
 
     public void setName(String name) { this.name = name; }
 
