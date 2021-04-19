@@ -10,7 +10,7 @@
    <children>
       <ListView fx:id="itemListView" layoutX="86.0" layoutY="14.0" prefHeight="321.0" prefWidth="427.0" />
       <TextField fx:id="searchField" layoutX="207.0" layoutY="340.0" />
-      <Text fx:id="lendNumberText" layoutX="247.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="antall: " />
+      <!--Text fx:id="lendNumberText" layoutX="247.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" text="antall: " /-->
       <Button fx:id="searchButton" layoutX="357.0" layoutY="340.0" mnemonicParsing="false" text="Søk" onAction="#performSearch"/>
    </children>
 </AnchorPane>

@@ -12,12 +12,6 @@
         "description": "",
         "id": "139be98b-b86d-4644-b675-069942f37051",
         "name": "Poleringsmaskin"
-      },
-      {
-        "defaultLendTime": "P0Y0M2D",
-        "description": "Bøyd",
-        "id": "139be98b-b86d-4644-b675-069942f37052",
-        "name": "Stjernejern"
       }
     ]
   },
@@ -131,6 +125,43 @@
         166,
         0,
         75
+      ]
+    },
+    {
+      "email": "tull@epost.com",
+      "firstName": "tull",
+      "id": "aedf6f12-67af-4836-b76b-67015d5f97f0",
+      "lastName": "tull",
+      "lentItems": {
+        "items": [
+          {
+            "defaultLendTime": "P0Y0M2D",
+            "description": "Bøyd",
+            "id": "139be98b-b86d-4644-b675-069942f37052",
+            "name": "Stjernejern",
+            "returnDate": "2021-04-21T16:39:01.1948338+02:00[Europe/Oslo]"
+          }
+        ]
+      },
+      "password": "3b77bebe7123b2c527ae72a3d39a3248d0fa457a7d5946d442aaea5452174300",
+      "privileges": "MEMBER",
+      "salt": [
+        180,
+        126,
+        181,
+        138,
+        49,
+        103,
+        108,
+        67,
+        217,
+        133,
+        41,
+        53,
+        219,
+        125,
+        69,
+        191
       ]
     }
   ]
