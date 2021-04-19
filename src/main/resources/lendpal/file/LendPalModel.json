@@ -5,32 +5,19 @@
         "defaultLendTime": "P0Y0M2D",
         "description": "Buet.",
         "id": "139be98b-b86d-4644-b675-069942f37050",
-        "name": "Buesag",
-        "returnDate": null
+        "name": "Buesag"
       },
-
       {
         "defaultLendTime": "P0Y0M2D",
         "description": "",
         "id": "139be98b-b86d-4644-b675-069942f37051",
-        "name": "Poleringsmaskin",
-        "returnDate": null
+        "name": "Poleringsmaskin"
       },
-
       {
         "defaultLendTime": "P0Y0M2D",
         "description": "Bøyd",
         "id": "139be98b-b86d-4644-b675-069942f37052",
-        "name": "Stjernejern",
-        "returnDate": null
-      },
-
-      {
-        "defaultLendTime": "P0Y0M2D",
-        "description": "",
-        "id": "139be98b-b86d-4644-b675-069942f37053",
-        "name": "Boremaskin",
-        "returnDate": null
+        "name": "Stjernejern"
       }
     ]
   },
@@ -107,6 +94,43 @@
         127,
         198,
         142
+      ]
+    },
+    {
+      "email": "test@email.com",
+      "firstName": "Test",
+      "id": "02570c18-f25a-4071-a5b1-02dbc8eb5854",
+      "lastName": "test",
+      "lentItems": {
+        "items": [
+          {
+            "defaultLendTime": "P0Y0M2D",
+            "description": "",
+            "id": "139be98b-b86d-4644-b675-069942f37053",
+            "name": "Boremaskin",
+            "returnDate": "2021-04-21T11:39:25.7599027+02:00[Europe/Oslo]"
+          }
+        ]
+      },
+      "password": "bcd86eeef1bb2c62c5bb3d10e61d323eb032d7d887ce90528cf6ba997dfc52a6",
+      "privileges": "MEMBER",
+      "salt": [
+        5,
+        110,
+        88,
+        193,
+        82,
+        150,
+        62,
+        118,
+        161,
+        68,
+        25,
+        132,
+        234,
+        166,
+        0,
+        75
       ]
     }
   ]

@@ -61,7 +61,7 @@ public class LendPalItemContainer implements Iterable<LendPalItem> {
     }
 
     public boolean containsItem(String itemId) {
-        return items.stream().allMatch(p -> p.getId().equals(itemId));
+        return items.stream().anyMatch(p -> p.getId().equals(itemId));
     }
 
     public void addListener(LendPalItemContainerListener listener) {

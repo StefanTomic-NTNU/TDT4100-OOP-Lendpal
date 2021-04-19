@@ -36,8 +36,6 @@ class LendPalModelJsonTest {
                 () -> Assertions.assertTrue(readModel.containsUser(user.getId())),
                 () -> Assertions.assertTrue(readModel.isItemAvailable(item.getId()))
         );
-        System.out.println(readModel.getUser(user.getId()));
-        //System.out.println(readModel.get());
     }
 
 }
