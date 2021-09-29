@@ -6,12 +6,6 @@
         "description": "Buet.",
         "id": "139be98b-b86d-4644-b675-069942f37050",
         "name": "Buesag"
-      },
-      {
-        "defaultLendTime": "P0Y0M2D",
-        "description": "",
-        "id": "139be98b-b86d-4644-b675-069942f37051",
-        "name": "Poleringsmaskin"
       }
     ]
   },
@@ -162,6 +156,72 @@
         125,
         69,
         191
+      ]
+    },
+    {
+      "email": "test@test.com",
+      "firstName": "Halla",
+      "id": "455ec294-f42d-49b4-b6ed-cd183ced1ed3",
+      "lastName": "Balla",
+      "lentItems": {
+        "items": [
+          {
+            "defaultLendTime": "P0Y0M2D",
+            "description": "",
+            "id": "139be98b-b86d-4644-b675-069942f37051",
+            "name": "Poleringsmaskin",
+            "returnDate": "2021-05-28T17:28:58.7722568+02:00[Europe/Oslo]"
+          }
+        ]
+      },
+      "password": "90a2f2429f0983431b773f7af3f0619741da8c4d06d7cc556332bd6e8f7cd634",
+      "privileges": "MEMBER",
+      "salt": [
+        148,
+        205,
+        172,
+        89,
+        241,
+        93,
+        198,
+        245,
+        173,
+        217,
+        53,
+        23,
+        155,
+        100,
+        216,
+        253
+      ]
+    },
+    {
+      "email": "oslo.stefan@gmail.com",
+      "firstName": "Stefan",
+      "id": "b26a699c-d409-44ad-a364-e6de2241931f",
+      "lastName": "Tomic",
+      "lentItems": {
+        "items": []
+      },
+      "password": "bfc5b2362b019495c997ea14cb58237dcb939cc49b58f85336b006b6a7722f40",
+      "privileges": "MEMBER",
+      "salt": [
+        255,
+        73,
+        228,
+        157,
+        192,
+        88,
+        230,
+        87,
+        148,
+        245,
+        249,
+        191,
+        218,
+        48,
+        159,
+        52
       ]
     }
   ]
