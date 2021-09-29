@@ -1,6 +1,6 @@
 # TDT4100 Project - LendPal
 
-Java project for registering the lending of items. 
+Simple Java project for registering the lending of items. 
 
 Run project using: ``` gradlew run ```
 
